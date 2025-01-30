@@ -29,7 +29,6 @@ export default function TaskList({ tasks }) {
   const [editedTitle, setEditedTitle] = useState('');
 
   const handleMenuOpen = (event, task) => {
-    console.log('task', task);
     setAnchorEl(event.currentTarget);
     setSelectedTask(task);
   };
@@ -46,8 +45,6 @@ export default function TaskList({ tasks }) {
 
   const handleEditSave = async () => {
     if (editedTitle.trim()) {
-        console.log('editedTitle', editedTitle);
-        console.log('selectedTask', selectedTask);
       await dispatch(updateTask({ id: selectedTask.id, title: editedTitle }));
       setEditDialogOpen(false);
     }
